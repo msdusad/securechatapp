@@ -1,4 +1,4 @@
-<a>Mahender</a><?php include('header.php');
+<?php include('header.php');
 include('code/conn.php');
 ?>
 <head>
