@@ -10,7 +10,7 @@ if($row = mysql_fetch_array($sql))
      {
     $chatusername=ucfirst($row['first_name']." ".$row['last_name']);
     $_SESSION['chatusername']=ucfirst($row['first_name']." ".$row['last_name']);
-    echo $chatusername;
+    echo "<span style='font-size:11px;'>".$chatusername."</span>";
     
 }
 }

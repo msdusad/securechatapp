@@ -1,4 +1,4 @@
-Mahender New<?php include('header.php');
+<?php include('header.php');
 include('code/conn.php');
 ?>
 <head>
@@ -43,8 +43,11 @@ include('code/conn.php');
     </div>
         </div>
         <div class="w3-col m6">
-            <div style="padding:3px;margin-top:3px">
-        <input type="text" style="width:70%;height:30px" class="" placeholder="Search Friends"><button type="submit" class="btn btn-info btn-sm" style="margin-top:-3px">Search</button>
+            <div style="padding:3px;margin-top:3px;position:relative;">
+        <input type="text" style="width:70%;height:30px;" class="" placeholder="Search Friends" onkeyup="searchfriend(this.value)"><!--<button type="submit" class="btn btn-info btn-sm" style="margin-top:-3px">Search</button>-->
+                <div id="search_friends" style="width:69%;height:200px;background-color:white;border:1px solid lightgray;overflow-y:scroll;position:absolute;display:none">
+               
+                </div>
                 </div>
         </div>
     </div>

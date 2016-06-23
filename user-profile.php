@@ -39,31 +39,60 @@ echo "Error in query".mysql_error();
 <head>
 <script>
       function openWindow(){
-document.getElementById("image_src").click();
+document.getElementById("ImageBrowse").click();
 }
+    
+    $(document).ready(function (e) {
+    $('#imageUploadForm').on('submit',(function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+
+        $.ajax({
+            type:'POST',
+            url: $(this).attr('action'),
+            data:formData,
+            cache:false,
+            contentType: false,
+            processData: false,
+            success:function(data){
+                console.log("success");
+                console.log(data);
+                if(jQuery.trim(data)!=''){
+                window.reload();
+                }
+               // $('#covrpic').attr("src",jQuery.trim(data));
+            },
+            error: function(data){
+                console.log("error");
+                console.log(data);
+            }
+        });
+    }));
+
+    $("#ImageBrowse").on("change", function() {
+        $("#imageUploadForm").submit();
+    });
+});
+    
+    
     </script>
 </head>
-<div class="w3-col m8 w3-" style="padding-left:1px;padding-right:1px;padding-bottom:20px">
-    <div class="w3-row" style="background-color:#75A3FF">
-    <div class="w3-col m6" style="padding-bottom:3px">
-        <div style="font-weight:bold;padding-bottom:3px;margin-top:-3px;margin-left:15px">
-    <h4 class="btn btn-warning"><i class="fa fa-image"></i> Profile View</h4>
-    </div>
-        </div>
-        <div class="w3-col m6">
-            <div style="padding:3px;margin-top:3px;position:relative;">
-        <input type="text" style="width:70%;height:30px" class="" placeholder="Search Friends"><button type="submit" class="btn btn-warning btn-sm" style="margin-top:-3px">Search</button>
-                <div style="width:69%;height:200px;background-color:white;border:1px solid lightgray;overflow-y:scroll;position:absolute;display:none">
-               
-                </div>
-                </div>
-        </div>
-    </div>
+<?php require_once('profile-header.php'); ?>
     
     <div class="w3-row">
     <div class="w3-col">
         <div style="position:;width:100%;height:300px">
-        <img src="securechat_images/3.png" class="" style="width:100%;height:300px">
+        <img src="coverpics/<?php echo $coverimage; ?>" id="covrpic" class="" style="width:100%;height:300px">
+            <span class="fa fa-image" onclick='openWindow()' style="margin-left:70%;margin-top:10px;"> Change Cover Photo</span>
+            
+            <!--cover photo div -->
+            <form name="photo" id="imageUploadForm" enctype="multipart/form-data" action="code/coverimage.php" method="post">
+        <input type="file" name="coverimage" id="ImageBrowse" style="display:none;" multiple accept='image/*'>
+    <input type="submit" name="upload" value="Upload" style="display:none;" />
+</form>
+            
+            <!-- End Here -->
+            
             <div style="position:;margin-top:-125px;margin-left:20px">
         <img src="profilephoto/<?php 
 if($pic!=''){
@@ -80,14 +109,10 @@ if($pic!=''){
     
      <div class="w3-row" style="margin-top:20px;background-color:white;border:1px solid lightgray">
     <div class="w3-col m6 w3-">
-        <h4 style="text-align:;font-weight:bold;margin-left:30px;color:gray" class=""><?php echo $name; ?></h4>
-        
-        <input type="file" name="image_src" id="image_src" style="display:none;">
-<img src='url' onclick='openWindow()'>
-
+       <br><br> <h4 style="text-align:;font-weight:bold;margin-left:30px;color:gray" class=""><?php echo $name; ?></h4>
          </div>
           <div class="w3-col m6 w3-">
-              <h4 style="text-align:;font-weight:bold;margin-left:30px;color:gray">Since : <span style="color:darkslateblue"><?php
+             <br><br> <h4 style="text-align:;font-weight:bold;margin-left:30px;color:gray">Since : <span style="color:darkslateblue"><?php
 if($years>0){
 echo $years."  Years ".$months."  Months ".$days."  Days";
 }

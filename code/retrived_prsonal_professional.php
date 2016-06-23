@@ -15,6 +15,7 @@ if($query){
         $dobyear=$row['dobyear'];
         $gender=$row['gender'];
         $pic=$row['pic'];
+        $coverimage=$row['cover_pic'];
         $contactno=$row['contactno'];
         $location=$row['location'];
         $designation=$row['designation'];

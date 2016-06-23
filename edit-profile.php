@@ -32,19 +32,7 @@ color: red;
 </style>
 </head>
 
-<div class="w3-col m8 w3-" style="padding-left:1px;padding-right:1px;padding-bottom:20px">
-    <div class="w3-row" style="background-color:#75A3FF">
-    <div class="w3-col m6" style="padding-bottom:3px">
-        <div style="font-weight:bold;padding-bottom:3px;margin-top:-3px;margin-left:15px">
-    <h4 class="btn btn-warning"><i class="fa fa-edit"></i> Edit Profile</h4>
-    </div>
-        </div>
-        <div class="w3-col m6">
-            <div style="padding:3px;margin-top:3px">
-        <input type="text" style="width:70%;height:30px" class="" placeholder="Search Friends"><button type="submit" class="btn btn-warning btn-sm" style="margin-top:-3px">Search</button>
-                </div>
-        </div>
-    </div>
+<?php require_once('profile-header.php'); ?>
     
     <div class="w3-row" style="background-color:;margin-top:20px;">
     <div class="w3-col m6 w3-white" style="border-right:2px solid lavender;padding-bottom:10px;border:1px solid lightgray">

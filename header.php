@@ -12,20 +12,19 @@ if(!isset($_SESSION['username']))
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="securechat_images/securechat_logo.png">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script type="text/javascript" src="securechatjs/chat.js"></script>
      <script type="text/javascript" src="securechatjs/chatbox.js"></script>
-    
-      <script type="text/javascript" src="bootstrap/js/jquery-1.11.3.min.js"></script>  
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/jquery-1.11.3.min.js"></script> 
     <style>
         
         
@@ -66,6 +65,15 @@ if(!isset($_SESSION['username']))
     <script>
 
        function searchfriend(first){
+        if(first!=''){
+        document.getElementById("search_friends").style.display="block";
+        
+        } 
+           if(first==''){
+        document.getElementById("search_friends").style.display="none";
+        
+        } 
+           
         var xmlhttp;
         if (window.XMLHttpRequest)
           {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -116,12 +124,44 @@ $(document).ready(function(){
     });
 });
 </script>
+    <?php $file = $_SERVER["SCRIPT_NAME"];
+$break = Explode('/', $file);
+$pfile = $break[count($break) - 1]; 
+ if(($pfile=='user-profile.php')||($pfile=='edit-profile.php')||($pfile=='friends.php')){
+ ?>
+      <script>
+$(document).ready(function(){
+        $("#div").toggle(1000);
+});
+</script>
+    <?php
+ }
+
+ if(($pfile=='inbox.php')||($pfile=='draft.php')||($pfile=='sent.php')||($pfile=='trash.php')||($pfile=='view_message.php')){
+ ?>
+       <script>
+$(document).ready(function(){
+        $("#div1").toggle(1000);
+});
+</script>
+    <?php
+ } 
+ if($pfile=='all_user.php'){
+ ?>
+       <script>
+$(document).ready(function(){
+        $("#div2").toggle(1000);
+});
+</script>
+    <?php
+ } 
+        ?>
     </head>
     <body style="background-color:whitesmoke">
     <div class="w3-row" style="padding:px;background-color:black;">
          <div class="w3-col m6 w3-" style="background-color:;padding:10px">
              <div style="margin:">
-       <img src="securechat_images/securechat_logo.png" style="width:40px;height:auto"> <span style="font-weight:bold;font-size:20px;color:white">SecureChat <sub style="font-size:10px">LIVE LIFE</sub></span>
+       <a href="inbox.php"><img src="securechat_images/securechat_logo.png" style="width:40px;height:auto"> <span style="font-weight:bold;font-size:20px;color:white">SecureChat <sub style="font-size:10px">LIVE LIFE</sub></span></a>
                  </div>
         </div>
 
@@ -149,7 +189,7 @@ $(document).ready(function(){
                 <div id="div" class="div" style="width:100%;height:auto;background-color:#75A3FF;display:none;padding-bottom:3px;">
                <ul id="list" style="margin-left:0px">
                     <li><a class="btn btn-warning" style="width:90%;" href="user-profile.php"><i class="fa fa-image"></i> Your Profile</a></li>
-                   <li><a class="btn btn-warning" style="width:90%;" href="edit-profile.php"><i class="fa fa-edit"></i> Edit/Complete</a></li>
+                   <li><a class="btn btn-warning" style="width:90%;" href="edit-profile.php"><i class="fa fa-edit"></i> Edit Profile</a></li>
                    <li><a class="btn btn-warning" style="width:90%;" href="friends.php"><i class="fa fa-user"></i> Friend Cricle</a></li>
                     </ul>
                 </div>

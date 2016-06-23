@@ -31,26 +31,20 @@ if ((($_FILES["profilepic"]["type"] == "image/gif")
 || ($_FILES["profilepic"]["type"] == "image/png"))
 && in_array($extension, $allowedExts)){
     
+    $pic=$_FILES['profilepic']['name'];
      $profilepic="../profilephoto/".$_FILES['profilepic']['name'];
     
-   /* code for if file exists in folder
+   // code for if file exists in folder
    
-    $fullpath = '../profilephoto/';
-$additional = '1';
-
-while (file_exists($fullpath)) {
-    $info = pathinfo($fullpath);
-    $fullpath = $info['dirname'] . '/'
-              . $info['filename'] . $additional
-              . '.' . $info['extension'];
+$addtional="1";
+while (file_exists($profilepic)) {
+	$info=pathinfo($profilepic);
+	$profilepic=$info['dirname']."/".$info['filename'].$addtional.'.'.$info['extension'];
+	$pic=$info['filename'].$addtional.'.'.$info['extension'];
 }
-    
-    */
+    // end here file exists
     
 	move_uploaded_file($_FILES['profilepic']['tmp_name'],$profilepic);
-         $pic=$_FILES['profilepic']['name'];
-          
-    
 }
         
         else{

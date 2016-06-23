@@ -1,5 +1,6 @@
-<?php include('header.php');
-include('code/conn.php');
+<?php 
+require_once('header.php');
+require_once('code/conn.php');
 $senderid=$_GET['sdid'];
 $reciverid=$_GET['recid'];
 $tokenid=$_GET['tokid'];
@@ -49,11 +50,11 @@ document.getElementById("reply_box").style.display="block";
            <?php echo " <a href='code/delete-message.php?type=$type&time=$time&tok=$tokenid' class='btn btn-default'><i class='fa fa-trash'></i> Delete</a>"; ?>
     </div>
         </div>
-        <div class="w3-col m6">
+        <!--<div class="w3-col m6">
             <div style="padding:3px;margin-top:px">
         <input type="text" style="width:70%;height:30px" class="" placeholder="Search Friends"><button type="submit" class="btn btn-default btn-sm" style="margin-top:-3px">Search</button>
                 </div>
-        </div>
+        </div>-->
     </div>
     
     <div class="w3-row"style="margin-top:10px" >

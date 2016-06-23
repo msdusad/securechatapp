@@ -2,9 +2,9 @@
 include('conn.php');
 session_start();
 
-$sendername=$_POST["sdname"];
-$senderemail=$_POST["sdemail"];
-$sendermessage=$_POST["sdmessage"];
+$sendername=mysql_real_escape_string($_POST["sdname"]);
+$senderemail=mysql_real_escape_string($_POST["sdemail"]);
+$sendermessage=mysql_real_escape_string($_POST["sdmessage"]);
 $result=mysql_query("insert into leave_message (name,email,message) values ('$sendername','$senderemail','$sendermessage')");
 
 if($result){

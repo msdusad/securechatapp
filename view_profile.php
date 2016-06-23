@@ -83,14 +83,14 @@ else{
    <a href="compose.php?sendtouser=<?php echo $viewid;?>" > <h4 class="btn btn-warning" ><i class="fa fa-envelope"></i> Send Mail</h4></a>
     </div>
         </div>
-        <div class="w3-col m6">
+        <!--<div class="w3-col m6">
             <div style="padding:3px;margin-top:3px;position:relative;">
         <input type="text" style="width:70%;height:30px" class="" placeholder="Search Friends" onkeypress="searchfriend(this.value)"><button type="submit" class="btn btn-warning btn-sm" style="margin-top:-3px" onkeypress="searchfriend(this.value)">Search</button>
                 <div id="search_friends"  style="width:69%;height:auto;background-color:white;border:1px solid lightgray;overflow-y:scroll;position:absolute;display:block">
                
                 </div>
                 </div>
-        </div>
+        </div> -->
     </div>
     
     <div class="w3-row">
